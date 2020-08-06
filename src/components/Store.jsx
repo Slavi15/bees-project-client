@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/productActions.js';
+import { addToCart } from '../actions/cartActions.js';
+import { bindActionCreators } from 'redux';
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 
@@ -9,6 +11,11 @@ class Store extends React.Component {
     componentDidMount() {
         this.props.fetchProducts();
     }
+
+    handleClick = (_id) => {
+        this.props.addToCart(_id);
+    }
+
     render() {
 
         const honey = require('../images/bee-5069115_1280.png')
@@ -18,7 +25,7 @@ class Store extends React.Component {
                 <img style={{ maxWidth: "40%", margin: "10px auto" }} src={honey} alt={prod.title} />
                 <div className="desc">{prod.desc}</div>
                 <div className="price">{`${prod.price.currency} ${prod.price.value}`}</div>
-                <div className="button">Add to cart</div>
+                <div className="button" onClick={() => { this.handleClick(prod._id) }}>Add to cart</div>
             </div>
         ));
         const productsWholesale = this.props.productswholesale.map(prodw => (
@@ -58,6 +65,13 @@ Store.propTypes = {
 const mapStateToProps = (state) => ({
     products: state.productReducer.products,
     productswholesale: state.productReducer.productswholesale
-})
+});
 
-export default connect(mapStateToProps, { fetchProducts })(Store);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchProducts: bindActionCreators(fetchProducts, dispatch),
+        addToCart: (_id) => { dispatch(addToCart(_id)) }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Store);
