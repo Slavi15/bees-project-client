@@ -10,6 +10,7 @@ $text-font: 'Montserrat', sans-serif;
 $cursive-font: 'Bebas Neue', cursive;
 $sm-device: "screen and (max-width: 769px)";
 $md-device: "screen and (min-width: 770px) and (max-width: 991px)";
+$to-md-device: "screen and (max-width: 991px)";
 $lg-device: "screen and (min-width: 992px) and (max-width: 1199px)";
 $xl-device: "screen and (min-width: 1200px)";
 
@@ -474,5 +475,32 @@ $xl-device: "screen and (min-width: 1200px)";
         background-color: $lime-color;
       }
     }
+  }
+}
+@media #{$to-md-device} {
+  .cart-container {
+    flex-direction: column;
+    height: 335px !important;
+    width: 64% !important;
+    justify-content: center !important;
+    .cartprod-img {
+      display: block !important;
+      margin-top: 15px;
+      max-width: 35% !important;
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }  
+    .cartprod-details {
+      margin: auto !important;
+    }
+    .lowest-button {
+      margin-bottom: 15px !important;
+    }
+  }
+}
+@media #{$lg-device} {
+  .cart-container {
+    width: 85% !important;
   }
 }

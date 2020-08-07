@@ -1,5 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, ADD_QUANTITY, SUB_QUANTITY } from '../constants/index.js';
-import { FETCH_PRODUCTS } from '../constants/index.js';
+import { FETCH_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, ADD_QUANTITY, SUB_QUANTITY } from '../constants/index.js';
 
 const initialState = {
     products: [],
@@ -39,7 +38,6 @@ const cartReducer = (state = initialState, action) => {
             let productToRemove = state.addedProducts.find(prod => action._id === prod._id);
             let newProducts = state.addedProducts.filter(prod => action._id !== prod._id);
             newTotal = state.total - (productToRemove.price.value * productToRemove.quantity);
-            console.log(productToRemove);
 
             return {
                 ...state,

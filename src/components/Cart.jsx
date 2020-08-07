@@ -39,7 +39,7 @@ class Cart extends React.Component {
                                 <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
                             </div>
                             <button className="button" onClick={() => { this.handleRemove(prod._id) }}>Remove</button>
-                            <button className="button">BUY</button>
+                            <button className="button lowest-button">BUY</button>
                         </div>
                     )
                 })
