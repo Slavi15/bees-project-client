@@ -22,8 +22,9 @@ class Cart extends React.Component {
     render() {
         const honey = require('../images/bee-5069115_1280.png')
         let addedProducts = this.props.products.length ? (
-                this.props.products.map(prod => {
-                    return (
+            this.props.products.map(prod => {
+                return (
+                    <div>
                         <div className="cart-container" key={prod._id}>
                             <div className="cartprod-img">
                                 <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
@@ -38,17 +39,22 @@ class Cart extends React.Component {
                                 <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
                                 <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
                             </div>
-                            <button className="button" onClick={() => { this.handleRemove(prod._id) }}>Remove</button>
-                            <button className="button lowest-button">BUY</button>
+                            <button className="button lowest-button" onClick={() => { this.handleRemove(prod._id) }}>Remove</button>
                         </div>
-                    )
-                })
-            ) : ( <div className="cart-error">No products selected</div> )
+                    </div>
+                )
+            })
+        ) : (<div className="cart-error">No products selected</div>)
         return (
             <div>
                 <Navbar />
                 <div className="cart-info">
                     {addedProducts}
+                </div>
+                <div className="line-break" style={{maxWidth: "80%", height: 6}}></div>
+                <div className="fortotal">
+                    <div className="total-prod">Total: {this.props.total} USD</div>
+                    <button className="button">BUY</button>
                 </div>
             </div>
         )
@@ -56,7 +62,8 @@ class Cart extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    products: state.cartReducer.addedProducts
+    products: state.cartReducer.addedProducts,
+    total: state.cartReducer.total
 });
 
 const mapDispatchToProps = (dispatch) => {

@@ -424,7 +424,7 @@ $xl-device: "screen and (min-width: 1200px)";
     }
     .cartprod-price {
       font-family: $text-font;
-      margin: auto 22.5px;
+      margin: auto 40px;
       font-size: 16px;
     }
     .cartprod-details {
@@ -441,7 +441,7 @@ $xl-device: "screen and (min-width: 1200px)";
     }
     .cartprod-add-remove {
       display: flex;
-      margin: auto 20px;
+      margin: auto 40px;
       .cartprod-quantity {
         font-family: $text-font;
         font-size: 16px;
@@ -465,7 +465,7 @@ $xl-device: "screen and (min-width: 1200px)";
       height: 35px;
       background-color: $green-color;
       margin-left: auto;
-      margin-right: auto;
+      margin-right: 30px;
       margin-top: 7.5px;
       border-radius: 5px;
       border: 2px solid $lime-color;
@@ -477,11 +477,45 @@ $xl-device: "screen and (min-width: 1200px)";
     }
   }
 }
+.line-break {
+  background-color: $black-color;
+  margin: 35px auto auto auto;
+}
+.fortotal {
+  display: flex;
+  margin: auto;
+  max-width: 80%;
+  align-items: center;
+  .total-prod {
+    margin-left: 50px;
+    margin-top: 10px;
+    font-family: $main-font;
+    font-size: 22px;
+  }
+  .button {
+    font-family: $cursive-font;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 125px;
+    height: 35px;
+    background-color: $green-color;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid $lime-color;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid $green-color;
+      background-color: $lime-color;
+    }
+  }
+}
 @media #{$to-md-device} {
   .cart-container {
     flex-direction: column;
     height: 335px !important;
-    width: 64% !important;
+    width: 75% !important;
     justify-content: center !important;
     .cartprod-img {
       display: block !important;
@@ -496,6 +530,8 @@ $xl-device: "screen and (min-width: 1200px)";
     }
     .lowest-button {
       margin-bottom: 15px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
   }
 }
