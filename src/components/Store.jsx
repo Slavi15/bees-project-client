@@ -33,8 +33,8 @@ class Store extends React.Component {
                 <div className="title">{prodw.title}</div>
                 <img style={{ maxWidth: "40%", margin: "10px auto" }} src={honey} alt={prodw.title} />
                 <div className="desc">{prodw.desc}</div>
-                <div className="price">{`${prodw.price.currency} ${prodw.price.value}${prodw.price.amount}`}</div>
-                <div className="button">Add to cart</div>
+                <div className="price">{`${prodw.price.currency} ${prodw.price.value}`}</div>
+                <div className="button" onClick={() => { this.handleClick(prodw._id) }}>Add to cart</div>
             </div>
         ));
 
@@ -58,6 +58,7 @@ class Store extends React.Component {
 
 Store.propTypes = {
     fetchProducts: PropTypes.func.isRequired,
+    addToCart: PropTypes.func.isRequired,
     products: PropTypes.array.isRequired,
     productswholesale: PropTypes.array.isRequired
 };

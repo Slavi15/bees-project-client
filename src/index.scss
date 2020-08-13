@@ -281,7 +281,7 @@ $xl-device: "screen and (min-width: 1200px)";
     }
     .retail-prod-wholesale {
       background-color: $white-color;
-      width: 225px;
+      width: 220px;
       height: 310px;
       margin-left: auto;
       margin-right: auto;
@@ -412,7 +412,7 @@ $xl-device: "screen and (min-width: 1200px)";
   .cart-container {
     align-items: center;
     display: flex;
-    width: 72.5%;
+    width: 75%;
     height: 140px;
     background-color: $white-color;
     border-radius: 10px;
@@ -429,6 +429,74 @@ $xl-device: "screen and (min-width: 1200px)";
     }
     .cartprod-details {
       margin: auto 22.5px auto 0px;
+      .cartprod-title {
+        font-family: $main-font;
+        font-size: 25px;
+      }
+      .cartprod-desc {
+        font-family: $text-font;
+        font-size: 18px;
+        font-weight: lighter;
+      }
+    }
+    .cartprod-add-remove {
+      display: flex;
+      margin: auto 40px;
+      .cartprod-quantity {
+        font-family: $text-font;
+        font-size: 16px;
+      }
+      .cartprod-uparr {
+        margin: auto 20px;
+        color: $black-color;
+        font-size: 17.5px;
+      }
+      .cartprod-downarr {
+        margin: auto 20px;
+        color: $black-color;
+        font-size: 17.5px;
+      }
+    }
+    .button {
+      font-family: $cursive-font;
+      line-height: 30px;
+      vertical-align: middle;
+      width: 125px;
+      height: 35px;
+      background-color: $green-color;
+      margin-left: auto;
+      margin-right: 30px;
+      margin-top: 7.5px;
+      border-radius: 5px;
+      border: 2px solid $lime-color;
+      cursor: pointer;
+      &:hover {
+        border: 2px solid $green-color;
+        background-color: $lime-color;
+      }
+    }
+  }
+  .cart-container-w {
+    align-items: center;
+    display: flex;
+    width: 75%;
+    height: 140px;
+    background-color: $white-color;
+    border-radius: 10px;
+    margin: 30px auto 20px auto;
+    box-shadow: 0 0 2px $black-color;
+    .cartprod-img {
+      max-width: 17.5%;
+      margin-left: 60px;
+    }
+    .cartprod-price {
+      font-family: $text-font;
+      margin: auto 40px;
+      font-size: 16px;
+    }
+    .cartprod-details {
+      margin: auto 22.5px auto 0px;
+      width: 225px;
       .cartprod-title {
         font-family: $main-font;
         font-size: 25px;
@@ -534,9 +602,62 @@ $xl-device: "screen and (min-width: 1200px)";
       margin-right: auto !important;
     }
   }
+  .cart-container-w {
+    flex-direction: column;
+    height: 335px !important;
+    width: 75% !important;
+    justify-content: center !important;
+    .cartprod-img {
+      display: block !important;
+      margin-top: 15px;
+      max-width: 35% !important;
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }  
+    .cartprod-details {
+      text-align: center !important;
+      margin: auto !important;
+    }
+    .lowest-button {
+      margin-bottom: 15px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
 }
 @media #{$lg-device} {
   .cart-container {
     width: 85% !important;
+  }
+  .cart-container-w {
+    width: 85% !important;
+  }
+}
+@media #{$to-md-device} {
+  .fortotal {
+    align-items: center !important;
+    .total-prod {
+      margin: 10px 10px;
+      width: 240px;
+    }
+    .button {
+      font-family: $cursive-font;
+      line-height: 30px;
+      vertical-align: middle;
+      width: 125px;
+      height: 35px;
+      background-color: $green-color;
+      margin-left: auto;
+      margin-right: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 2px solid $lime-color;
+      cursor: pointer;
+      &:hover {
+        border: 2px solid $green-color;
+        background-color: $lime-color;
+      }
+    }
   }
 }
