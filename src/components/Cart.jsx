@@ -81,7 +81,7 @@ class Cart extends React.Component {
                 <div className="line-break" style={{ maxWidth: "80%", height: 6 }}></div>
                 <div className="fortotal">
                     <div className="total-prod">Total: {this.props.total} EUR</div>
-                    <button className="button">BUY</button>
+                    <div><Link to="/form"><button className="button">BUY</button></Link></div>
                 </div>
             </div>
         )

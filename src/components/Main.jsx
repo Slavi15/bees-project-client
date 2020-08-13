@@ -29,7 +29,7 @@ export default class Main extends React.Component {
                     <img src={require('../images/bee-3360682_1920.png')} alt="test" />
                 </div>
                 <div className="main-text-down">
-                <img src={require('../images/forget-me-not-257176_1920.png')} alt="test" />
+                    <img src={require('../images/forget-me-not-257176_1920.png')} alt="test" />
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />
                     Obcaecati a libero nesciunt deleniti unde asperiores sed facilis saepe nulla eos cumque quaerat <br /> 
