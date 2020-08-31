@@ -219,7 +219,7 @@ class Form extends React.Component {
                                 <label htmlFor="tel">Phone Number</label>
                                 <input
                                     className={formErrors.tel.length > 0 ? "error" : null}
-                                    placeholder="089 123 4567"
+                                    placeholder="0891234567"
                                     type="tel"
                                     name="tel"
                                     value={tel}
