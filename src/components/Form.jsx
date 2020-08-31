@@ -10,63 +10,84 @@ const formValid = ({ formErrors, ...rest }) => {
     let valid = true;
     // validate form errors being empty
     Object.values(formErrors).forEach(val => {
-      val.length > 0 && (valid = false);
+        val.length > 0 && (valid = false);
     });
     // validate the form was filled out
     Object.values(rest).forEach(val => {
-      val === null && (valid = false);
+        val === null && (valid = false);
     });
     return valid;
-  };
+};
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: null,
-            lastName: null,
-            email: null,
-            address: null,
+            firstName: "",
+            lastName: "",
+            email: "",
+            address: "",
+            tel: "",
             formErrors: {
                 firstName: "",
                 lastName: "",
                 email: "",
-                address: ""
+                address: "",
+                tel: ""
             }
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-    
+
         if (formValid(this.state)) {
-          console.log("Data is valid");
+            console.log("Data is valid");
         } else {
-          console.error("Data is invalid");
+            console.error("Data is invalid");
         };
+
+        const data = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            address: this.state.address,
+            phoneNumber: this.state.tel
+        };            
+
+        axios.post('http://localhost:8000/api/bees-orders', data)
+            .then(res => {
+                return res;
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
     };
 
     handleChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
-        let formErrors = {...this.state.formErrors};
+        let formErrors = { ...this.state.formErrors };
 
-        switch(name) {
+        switch (name) {
             case "firstName":
                 formErrors.firstName = value.length < 2 ? "minimum 2 characaters required" : "";
-              break;
+                break;
             case "lastName":
-              formErrors.lastName = value.length < 3 ? "minimum 3 characaters required" : "";
-              break;
+                formErrors.lastName = value.length < 3 ? "minimum 3 characaters required" : "";
+                break;
             case "email":
-              formErrors.email = emailRegex.test(value) ? "" : "invalid email address";
-              break;
+                formErrors.email = emailRegex.test(value) ? "" : "invalid email address";
+                break;
             case "address":
-              formErrors.address = value.length < 6 ? "minimum 6 characaters required" : "";
-              break;
+                formErrors.address = value.length < 6 ? "minimum 6 characaters required" : "";
+                break;
+            case "tel":
+                formErrors.tel = value.length < 5 ? "minimum 5 characters required" : "";
+                break;
             default:
-              break;
+                break;
         }
         this.setState({ formErrors, [name]: value });
     };
@@ -114,7 +135,7 @@ class Form extends React.Component {
             })
         ) : (<div></div>);
 
-        const { formErrors } = this.state;
+        const { firstName, lastName, email, address, tel, formErrors } = this.state;
 
         return (
             <div>
@@ -129,11 +150,11 @@ class Form extends React.Component {
                 <div className="fortotal-form">
                     <div className="total-prod">Total: {this.props.total} EUR</div>
                 </div>
-                <div className="line-break-2" style={{ maxWidth: "45%", height: 3 }}></div>
+                <div className="line-break-2" style={{ maxWidth: "45%", height: 2.8 }}></div>
                 <div className="wrapper">
                     <div className="form-wrapper">
                         <div className="form-title">Create Order</div>
-                        <form onSubmit={this.handleSubmit} noValidate>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="firstName">
                                 <label htmlFor="firstName">First Name</label>
                                 <input
@@ -141,8 +162,8 @@ class Form extends React.Component {
                                     placeholder="First Name"
                                     type="text"
                                     name="firstName"
+                                    value={firstName}
                                     onChange={this.handleChange}
-                                    noValidate
                                     required >
                                 </input>
                                 {formErrors.firstName.length > 0 && (
@@ -156,8 +177,8 @@ class Form extends React.Component {
                                     placeholder="Last Name"
                                     type="text"
                                     name="lastName"
+                                    value={lastName}
                                     onChange={this.handleChange}
-                                    noValidate
                                     required >
                                 </input>
                                 {formErrors.lastName.length > 0 && (
@@ -171,8 +192,8 @@ class Form extends React.Component {
                                     placeholder="Email"
                                     type="email"
                                     name="email"
+                                    value={email}
                                     onChange={this.handleChange}
-                                    noValidate
                                     required >
                                 </input>
                                 {formErrors.email.length > 0 && (
@@ -186,12 +207,27 @@ class Form extends React.Component {
                                     placeholder="Address"
                                     type="text"
                                     name="address"
+                                    value={address}
                                     onChange={this.handleChange}
-                                    noValidate
                                     required >
                                 </input>
                                 {formErrors.address.length > 0 && (
                                     <span className="errorMessage">{formErrors.address}</span>
+                                )}
+                            </div>
+                            <div className="tel">
+                                <label htmlFor="tel">Phone Number</label>
+                                <input
+                                    className={formErrors.tel.length > 0 ? "error" : null}
+                                    placeholder="089 123 4567"
+                                    type="tel"
+                                    name="tel"
+                                    value={tel}
+                                    onChange={this.handleChange}
+                                    required >
+                                </input>
+                                {formErrors.tel.length > 0 && (
+                                    <span className="errorMessage">{formErrors.tel}</span>
                                 )}
                             </div>
                             <div className="createOrder">

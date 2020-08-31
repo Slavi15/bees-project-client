@@ -50,9 +50,6 @@ $xl-device: "screen and (min-width: 1200px)";
   .above-nav {
     justify-content: space-between !important;
     align-items: center;
-    .above-nav-text {
-      display: none;
-    }
     div {
       margin: 0px 35px;
     }
@@ -111,7 +108,7 @@ $xl-device: "screen and (min-width: 1200px)";
   .text-below-nav {
     z-index: 100;
     position: absolute;
-    min-height: 92vh;
+    min-height: 90vh;
     right: 0px;
     top: 85px;
     background-color: $white-color;
@@ -121,6 +118,7 @@ $xl-device: "screen and (min-width: 1200px)";
     width: 45%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
+    border-left: $lime-color 3px solid;
     .nav-links {
       opacity: 1;
     }
@@ -904,7 +902,7 @@ $xl-device: "screen and (min-width: 1200px)";
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      .firstName, .lastName, .email, .address {
+      .firstName, .lastName, .email, .address, .tel {
         display: flex;
         flex-direction: column;
         margin-bottom: 15px;
@@ -912,7 +910,7 @@ $xl-device: "screen and (min-width: 1200px)";
       .firstName, .lastName {
         width: 49%;
       }
-      .email, .address {
+      .email, .address, .tel {
         width: 100%;
       }
       .firstName {

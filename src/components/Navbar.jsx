@@ -17,7 +17,7 @@ export default class Navbar extends React.Component {
                         <div className="lang-change">
                             EN / BG
                         </div>
-                        <div className="above-nav-text">Honey Rezashki</div>
+                        <div className="above-nav-text"></div>
                         <div>
                             <Link to="/cart"><FontAwesomeIcon className="shopping-cart" icon="shopping-cart" /></Link>
                         </div>
