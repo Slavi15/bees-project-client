@@ -19,7 +19,7 @@ class Store extends React.Component {
     render() {
 
         const honey = require('../images/bee-5069115_1280.png')
-        const productsBg = this.props.products.map(prod => (
+        const products = this.props.products.map(prod => (
             <div className="retail-prod" key={prod._id}>
                 <div className="title">{prod.title}</div>
                 <img style={{ maxWidth: "40%", margin: "10px auto" }} src={honey} alt={prod.title} />
@@ -44,7 +44,7 @@ class Store extends React.Component {
                 <div className="store-container">
                     <div className="store-options">
                         <h1>Retail</h1>
-                        {productsBg}
+                        {products}
                         <h1>Wholesale</h1>
                         {productsWholesale}
                         <div></div>

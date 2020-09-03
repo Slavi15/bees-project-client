@@ -38,7 +38,7 @@ class Form extends React.Component {
         }
     }
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
 
         if (formValid(this.state)) {
@@ -52,17 +52,19 @@ class Form extends React.Component {
             lastName: this.state.lastName,
             email: this.state.email,
             address: this.state.address,
-            phoneNumber: this.state.tel
-        };            
+            phoneNumber: this.state.tel,
+            products: this.props.products,
+            productswholesale: this.props.productswholesale,
+            total: this.props.total
+        };
 
-        axios.post('http://localhost:8000/api/bees-orders', data)
+        axios.post('http://localhost:8000/api/bees-orders', data, { headers: { 'Content-Type': 'application/json' }})
             .then(res => {
-                return res;
+                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);
-            })
-
+            });
     };
 
     handleChange = (e) => {
@@ -95,45 +97,41 @@ class Form extends React.Component {
     render() {
         const honey = require('../images/bee-5069115_1280.png');
 
-        let addedProducts = this.props.products.length ? (
-            this.props.products.map(prod => {
-                return (
-                    <div className="cart-container" key={prod._id}>
-                        <div className="cartprod-img">
-                            <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
-                        </div>
-                        <div className="cartprod-details">
-                            <div className="cartprod-title">{prod.title}</div>
-                            <div className="cartprod-desc">{prod.desc}</div>
-                        </div>
-                        <div className="cartprod-price">Price: {`${prod.price.currency} ${prod.price.value}`}</div>
-                        <div className="cartprod-add-remove">
-                            <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
-                        </div>
+        const addedProducts = this.props.products.map(prod => {
+            return (
+                <div className="cart-container" key={prod._id}>
+                    <div className="cartprod-img">
+                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
                     </div>
-                )
-            })
-        ) : (<div></div>);
+                    <div className="cartprod-details">
+                        <div className="cartprod-title">{prod.title}</div>
+                        <div className="cartprod-desc">{prod.desc}</div>
+                    </div>
+                    <div className="cartprod-price">Price: {`${prod.price.currency} ${prod.price.value}`}</div>
+                    <div className="cartprod-add-remove">
+                        <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
+                    </div>
+                </div>
+            )
+        })
 
-        let addedProductsW = this.props.productswholesale.length ? (
-            this.props.productswholesale.map(prodw => {
-                return (
-                    <div className="cart-container-w" key={prodw._id}>
-                        <div className="cartprod-img">
-                            <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prodw.title} />
-                        </div>
-                        <div className="cartprod-details">
-                            <div className="cartprod-title">{prodw.title}</div>
-                            <div className="cartprod-desc">{prodw.desc}</div>
-                        </div>
-                        <div className="cartprod-price">Price: {`${prodw.price.currency} ${prodw.price.value}`}</div>
-                        <div className="cartprod-add-remove">
-                            <div className="cartprod-quantity">Quantity: {prodw.quantity}</div>
-                        </div>
+        const addedProductsW = this.props.productswholesale.map(prodw => {
+            return (
+                <div className="cart-container-w" key={prodw._id}>
+                    <div className="cartprod-img">
+                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prodw.title} />
                     </div>
-                )
-            })
-        ) : (<div></div>);
+                    <div className="cartprod-details">
+                        <div className="cartprod-title">{prodw.title}</div>
+                        <div className="cartprod-desc">{prodw.desc}</div>
+                    </div>
+                    <div className="cartprod-price">Price: {`${prodw.price.currency} ${prodw.price.value}`}</div>
+                    <div className="cartprod-add-remove">
+                        <div className="cartprod-quantity">Quantity: {prodw.quantity}</div>
+                    </div>
+                </div>
+            )
+        })
 
         const { firstName, lastName, email, address, tel, formErrors } = this.state;
 

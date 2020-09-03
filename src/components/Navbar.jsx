@@ -14,8 +14,9 @@ export default class Navbar extends React.Component {
             <div>
                 <header>
                     <div className="above-nav">
-                        <div className="lang-change">
-                            EN / BG
+                        <div className="log">
+                            <div className="sign-in">Sign In</div>
+                            <div className="sign-up">Sign Up</div>
                         </div>
                         <div className="above-nav-text"></div>
                         <div>

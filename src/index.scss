@@ -30,10 +30,19 @@ $xl-device: "screen and (min-width: 1200px)";
   display: flex;
   line-height: 40px;
   vertical-align: middle;
-  .lang-change {
-    font-family: $main-font;
-    font-size: 16px;
+  .log {
     align-items: center;
+    display: flex;
+    .sign-in {
+      font-size: 17.5px;
+      font-family: $text-font;
+      margin-right: 15px;
+    }
+    .sign-up {
+      font-size: 17.5px;
+      font-family: $text-font;
+      margin-left: 15px;
+    }
   }
   div {
     margin: auto;
@@ -249,8 +258,8 @@ $xl-device: "screen and (min-width: 1200px)";
       box-shadow: 0 0 6px $black-color;
       .title {
         font-family: $text-font;
-        margin-top: 5px;
-        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 6px;
       }
       .desc {
         font-family: $text-font;
@@ -288,8 +297,8 @@ $xl-device: "screen and (min-width: 1200px)";
       margin-bottom: 20px;
       .title {
         font-family: $text-font;
-        margin-top: 5px;
-        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 6px;
       }
       .desc {
         font-family: $text-font;
