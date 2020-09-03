@@ -43,9 +43,9 @@ const cartReducer = (state = initialState, action) => {
                         total: newTotal
                     }
                 }
-            } catch (err) {
-                console.log(err);
-            };
+            } catch(err) {
+
+            }
 
             try {
                 if (existedProductW) {
@@ -66,7 +66,7 @@ const cartReducer = (state = initialState, action) => {
                     }
                 }
             } catch (err) {
-                console.log(err);
+
             };
             break;
         case REMOVE_FROM_CART:
@@ -83,7 +83,7 @@ const cartReducer = (state = initialState, action) => {
                     total: newTotal
                 }
             } catch (err) {
-                console.log(err);
+
             };
 
             try {
@@ -94,7 +94,7 @@ const cartReducer = (state = initialState, action) => {
                     total: newTotal
                 }
             } catch (err) {
-                console.log(err);
+
             }
             break;
         case ADD_QUANTITY:
@@ -109,7 +109,7 @@ const cartReducer = (state = initialState, action) => {
                     total: newTotal
                 }
             } catch (err) {
-                console.log(err);
+
             };
 
             try {
@@ -120,7 +120,7 @@ const cartReducer = (state = initialState, action) => {
                     total: newTotal
                 }
             } catch (err) {
-                console.log(err);
+
             };
             break;
         case SUB_QUANTITY:
@@ -145,7 +145,7 @@ const cartReducer = (state = initialState, action) => {
                     }
                 }
             } catch (err) {
-                console.log(err);
+
             };
 
             try {
@@ -166,7 +166,7 @@ const cartReducer = (state = initialState, action) => {
                     }
                 }
             } catch (err) {
-                console.log(err);
+                
             };
             break;
         default:
