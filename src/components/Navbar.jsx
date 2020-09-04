@@ -15,8 +15,8 @@ export default class Navbar extends React.Component {
                 <header>
                     <div className="above-nav">
                         <div className="log">
-                            <div className="sign-in">Sign In</div>
-                            <div className="sign-up">Sign Up</div>
+                            <Link to="/signin"><div className="sign-in">Sign In</div></Link>
+                            <Link to="/signup"><div className="sign-up">Sign Up</div></Link>
                         </div>
                         <div className="above-nav-text"></div>
                         <div>

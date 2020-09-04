@@ -23,52 +23,48 @@ class Cart extends React.Component {
     render() {
         const honey = require('../images/bee-5069115_1280.png');
 
-        let addedProducts = this.props.products.length ? (
-            this.props.products.map(prod => {
-                return (
-                    <div className="cart-container" key={prod._id}>
-                        <div className="cartprod-img">
-                            <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
-                        </div>
-                        <div className="cartprod-details">
-                            <div className="cartprod-title">{prod.title}</div>
-                            <div className="cartprod-desc">{prod.desc}</div>
-                        </div>
-                        <div className="cartprod-price">Price: {`${prod.price.currency} ${prod.price.value}`}</div>
-                        <div className="cartprod-add-remove">
-                            <Link to="/cart"><FontAwesomeIcon className="cartprod-uparr" onClick={() => { this.handleAddQuantity(prod._id) }} icon="chevron-up" /></Link>
-                            <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
-                            <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
-                        </div>
-                        <button className="button lowest-button" onClick={() => { this.handleRemove(prod._id) }}>Remove</button>
+        let addedProducts = this.props.products.map(prod => {
+            return (
+                <div className="cart-container" key={prod._id}>
+                    <div className="cartprod-img">
+                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
                     </div>
-                )
-            })
-        ) : (<div></div>);
+                    <div className="cartprod-details">
+                        <div className="cartprod-title">{prod.title}</div>
+                        <div className="cartprod-desc">{prod.desc}</div>
+                    </div>
+                    <div className="cartprod-price">Price: {`${prod.price.currency} ${prod.price.value}`}</div>
+                    <div className="cartprod-add-remove">
+                        <Link to="/cart"><FontAwesomeIcon className="cartprod-uparr" onClick={() => { this.handleAddQuantity(prod._id) }} icon="chevron-up" /></Link>
+                        <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
+                        <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
+                    </div>
+                    <button className="button lowest-button" onClick={() => { this.handleRemove(prod._id) }}>Remove</button>
+                </div>
+            )
+        });
 
-        let addedProductsW = this.props.productswholesale.length ? (
-            this.props.productswholesale.map(prodw => {
-                return (
-                    <div className="cart-container-w" key={prodw._id}>
-                        <div className="cartprod-img">
-                            <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prodw.title} />
-                        </div>
-                        <div className="cartprod-details">
-                            <div className="cartprod-title">{prodw.title}</div>
-                            <div className="cartprod-desc">{prodw.desc}</div>
-                        </div>
-                        <div className="cartprod-price">Price: {`${prodw.price.currency} ${prodw.price.value}`}</div>
-                        <div className="cartprod-add-remove">
-                            <Link to="/cart"><FontAwesomeIcon className="cartprod-uparr" onClick={() => { this.handleAddQuantity(prodw._id) }} icon="chevron-up" /></Link>
-                            <div className="cartprod-quantity">Quantity: {prodw.quantity}</div>
-                            <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prodw._id) }} icon="chevron-down" /></Link>
-                        </div>
-                        <button className="button lowest-button" onClick={() => { this.handleRemove(prodw._id) }}>Remove</button>
+        let addedProductsW = this.props.productswholesale.map(prodw => {
+            return (
+                <div className="cart-container-w" key={prodw._id}>
+                    <div className="cartprod-img">
+                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prodw.title} />
                     </div>
-                )
-            })
-        ) : (<div></div>);
-        
+                    <div className="cartprod-details">
+                        <div className="cartprod-title">{prodw.title}</div>
+                        <div className="cartprod-desc">{prodw.desc}</div>
+                    </div>
+                    <div className="cartprod-price">Price: {`${prodw.price.currency} ${prodw.price.value}`}</div>
+                    <div className="cartprod-add-remove">
+                        <Link to="/cart"><FontAwesomeIcon className="cartprod-uparr" onClick={() => { this.handleAddQuantity(prodw._id) }} icon="chevron-up" /></Link>
+                        <div className="cartprod-quantity">Quantity: {prodw.quantity}</div>
+                        <Link to="/cart"><FontAwesomeIcon className="cartprod-downarr" onClick={() => { this.handleSubQuantity(prodw._id) }} icon="chevron-down" /></Link>
+                    </div>
+                    <button className="button lowest-button" onClick={() => { this.handleRemove(prodw._id) }}>Remove</button>
+                </div>
+            )
+        });
+
         return (
             <div>
                 <Navbar />

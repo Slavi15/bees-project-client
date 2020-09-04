@@ -4,6 +4,8 @@ import MainPage from './components/MainPage.jsx';
 import Store from './components/Store.jsx';
 import Cart from './components/Cart.jsx';
 import Form from './components/Form.jsx';
+import SignIn from './components/SignIn.jsx';
+import SignUp from './components/SignUp.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
 
 class App extends React.Component {
@@ -16,6 +18,8 @@ class App extends React.Component {
             <Route exact path="/store" component={Store}></Route>
             <Route exact path="/cart" component={Cart}></Route>
             <Route exact path="/form" component={Form}></Route>
+            <Route exact path="/signin" component={SignIn}></Route>
+            <Route exact path="/signup" component={SignUp}></Route>
             <Route exact path="/404" component={PageNotFound}></Route>
             <Redirect to="/404" />
           </Switch>
