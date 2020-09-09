@@ -86,7 +86,7 @@ class Form extends React.Component {
                 formErrors.address = value.length < 6 ? "minimum 6 characaters required" : "";
                 break;
             case "tel":
-                formErrors.tel = value.length < 5 ? "minimum 5 characters required" : "";
+                formErrors.tel = value.length < 7 ? "minimum 7 characters required" : "";
                 break;
             default:
                 break;
@@ -162,6 +162,7 @@ class Form extends React.Component {
                                     name="firstName"
                                     value={firstName}
                                     onChange={this.handleChange}
+                                    minLength="2"
                                     required >
                                 </input>
                                 {formErrors.firstName.length > 0 && (
@@ -177,6 +178,7 @@ class Form extends React.Component {
                                     name="lastName"
                                     value={lastName}
                                     onChange={this.handleChange}
+                                    minLength="3"
                                     required >
                                 </input>
                                 {formErrors.lastName.length > 0 && (
@@ -207,6 +209,7 @@ class Form extends React.Component {
                                     name="address"
                                     value={address}
                                     onChange={this.handleChange}
+                                    minLength="6"
                                     required >
                                 </input>
                                 {formErrors.address.length > 0 && (
@@ -222,6 +225,8 @@ class Form extends React.Component {
                                     name="tel"
                                     value={tel}
                                     onChange={this.handleChange}
+                                    minLength="7"
+                                    maxLength="15"
                                     required >
                                 </input>
                                 {formErrors.tel.length > 0 && (

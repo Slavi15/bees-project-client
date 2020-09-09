@@ -992,3 +992,170 @@ $xl-device: "screen and (min-width: 1200px)";
     font-size: 18px;
   }
 }
+.wrapper-signup {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    .signup-title {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 15px;
+      color: $black-color;
+      font-weight: bold;
+      font-family: $main-font;
+      text-transform: uppercase;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .email, .password {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+      }
+      label {
+        font-size: 1em;
+        margin-bottom: 0.25em;
+        color: $black-color;
+      }
+      .create-account {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+      .button {
+        font-family: $cursive-font;
+        line-height: 30px;
+        vertical-align: middle;
+        width: 125px;
+        height: 35px;
+        background-color: $green-color;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7.5px;
+        border-radius: 5px;
+        border: 2px solid $lime-color;
+        cursor: pointer;
+        &:hover {
+          border: 2px solid $green-color;
+          background-color: $lime-color;
+        }
+      }
+    }
+      .errorMessage {
+        color: $red-color;
+        font-size: 0.75em;
+        display: relative;
+      }
+      input {
+        padding: 10px 10px;
+        border-radius: 5px;
+        outline: none;
+        border: 1.5px solid #cfcfcf;
+        &::placeholder {
+          font-size: 1.2em;
+          font-weight: lighter;
+          color: #999;
+        }
+      }
+      input.error {
+        border: 1px solid $red-color;
+      }
+    }
+  }
+}
+.wrapper-signin {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    .signin-title {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 15px;
+      color: $black-color;
+      font-weight: bold;
+      font-family: $main-font;
+      text-transform: uppercase;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .email, .password {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+        .email-error, .password-error {
+          color: $red-color;
+          font-size: 0.75em;
+          display: relative;
+        }
+      }
+      label {
+        font-size: 1em;
+        margin-bottom: 0.25em;
+        color: $black-color;
+      }
+      .create-account {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+      .button {
+        font-family: $cursive-font;
+        line-height: 30px;
+        vertical-align: middle;
+        width: 125px;
+        height: 35px;
+        background-color: $green-color;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 7.5px;
+        border-radius: 5px;
+        border: 2px solid $lime-color;
+        cursor: pointer;
+        &:hover {
+          border: 2px solid $green-color;
+          background-color: $lime-color;
+        }
+      }
+    }
+      input {
+        padding: 10px 10px;
+        border-radius: 5px;
+        outline: none;
+        border: 1.5px solid #cfcfcf;
+        &::placeholder {
+          font-size: 1.2em;
+          font-weight: lighter;
+          color: #999;
+        }
+      }
+    }
+  }
+}
