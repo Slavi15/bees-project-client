@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
     render() {
         const navSlide = () => {
             const burger = document.querySelector('.burger');
@@ -10,6 +10,7 @@ export default class Navbar extends React.Component {
             nav.classList.toggle('nav-active');
             burger.classList.toggle('toggle');
         }
+
         return (
             <div>
                 <header>
@@ -17,6 +18,7 @@ export default class Navbar extends React.Component {
                         <div className="log">
                             <Link to="/signin"><div className="sign-in">Sign In</div></Link>
                             <Link to="/signup"><div className="sign-up">Sign Up</div></Link>
+                            <a className="log-out" href="http://localhost:8000/api/logout">Log Out</a>
                         </div>
                         <div className="above-nav-text"></div>
                         <div>
@@ -45,4 +47,6 @@ export default class Navbar extends React.Component {
             </div>
         )
     }
-};
+}
+
+export default Navbar;

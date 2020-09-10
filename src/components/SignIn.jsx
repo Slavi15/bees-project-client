@@ -15,7 +15,7 @@ class SignIn extends React.Component {
         }
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async(e) => {
         e.preventDefault();
 
         const emailError = document.querySelector('.email-error');
@@ -29,20 +29,20 @@ class SignIn extends React.Component {
             password: this.state.password
         };
 
-        axios.post('http://localhost:8000/api/signin', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
-        .then(res => {
-            console.log(res.data);
-            if (res.data.errors) {
-                emailError.textContent = res.data.errors.email;
-                passwordError.textContent = res.data.errors.password;
-            }
-            if(res.data.user) {
-                window.location.assign('/');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        await axios.post('http://localhost:8000/api/signin', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                if(res.data.errors) {
+                    emailError.textContent = res.data.errors.email;
+                    passwordError.textContent = res.data.errors.password;
+                }
+                if(res.data.user) {
+                    window.location.assign('/');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     handleChange = (e) => {
@@ -71,8 +71,8 @@ class SignIn extends React.Component {
                                     onChange={this.handleChange}
                                     required >
                                 </input>
-                                <div className="email-error"></div>
                             </div>
+                            <div className="email-error"></div>
                             <div className="password">
                                 <label htmlFor="password">Password</label>
                                 <input
@@ -84,8 +84,8 @@ class SignIn extends React.Component {
                                     minLength="6"
                                     required >
                                 </input>
-                                <div className="password-error"></div>
                             </div>
+                            <div className="password-error"></div>
                             <div className="create-account">
                                 <button type="submit" className="button">Sign In</button>
                             </div>

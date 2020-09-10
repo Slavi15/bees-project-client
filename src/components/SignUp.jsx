@@ -17,7 +17,7 @@ class SignUp extends React.Component {
         }
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async(e) => {
         e.preventDefault();
 
         const data = {
@@ -25,16 +25,16 @@ class SignUp extends React.Component {
             password: this.state.password
         };
 
-        axios.post('http://localhost:8000/api/signup', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
-        .then(res => {
-            console.log(res.data);
-            if(res.data.user) {
-                window.location.assign('/');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        await axios.post('http://localhost:8000/api/signup', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                if(res.data.user) {
+                    window.location.assign('/');
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     handleChange = (e) => {

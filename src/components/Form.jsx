@@ -38,7 +38,7 @@ class Form extends React.Component {
         }
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async(e) => {
         e.preventDefault();
 
         if (formValid(this.state)) {
@@ -58,9 +58,12 @@ class Form extends React.Component {
             total: this.props.total
         };
 
-        axios.post('http://localhost:8000/api/bees-orders', data, { headers: { 'Content-Type': 'application/json' }})
+        await axios.post('http://localhost:8000/api/bees-orders', data, { headers: { 'Content-Type': 'application/json' }})
             .then(res => {
                 console.log(res.data);
+                if(res.data.order) {
+                    window.location.assign('/');
+                }
             })
             .catch(err => {
                 console.log(err);
