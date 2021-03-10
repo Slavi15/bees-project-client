@@ -1,0 +1,183 @@
+.cartcontainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 22vh;
+    margin: 4% auto 2% auto;
+    background-color: #F5FBEF;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+    width: 80%;
+
+    .a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .img {
+        max-width: 6.5%;
+    }
+
+    .titleDesc {
+        .title {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .desc {
+            font-size: 17px;
+        }
+    }
+
+    .price {
+        font-size: 17px;
+    }
+
+    .addRemove {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .icon {
+            font-size: 22px;
+            margin: auto 15px;
+        }
+    }
+
+    .button {
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 1px;
+        height: 40px;
+        width: 130px;
+        line-height: 38px;
+        border: none;
+        outline: none;
+        border-radius: 500px;
+        background-color: #FFB30F;
+        cursor: pointer;
+    }
+}
+
+.total {
+    text-align: center;
+
+    .totalamount {
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+    }
+}
+
+.wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .formwrapper {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 40px;
+        background-color: #F5FBEF;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+        margin: 3% auto;
+
+        .title {
+            width: 100%;
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .firstName, .lastName, .email, .address, .tel {
+                display: flex;
+                flex-direction: column;
+                margin: 15px auto;
+            }
+
+            .firstName, .lastName {
+                width: 49%;
+            }
+
+            .firstName {
+                margin-right: 1%;
+            }
+
+            .lastName {
+                margin-left: 1%;
+            }
+
+            .email, .tel, .address {
+                width: 100%;
+            }
+
+            label {
+                font-size: 1em;
+                margin-bottom: 0.25em;
+            }
+
+            input {
+                padding: 10px 10px;
+                height: 3.5vh;
+                border-radius: 5px;
+                outline: none;
+                border: 1.5px solid #cfcfcf;
+                &::placeholder {
+                  font-size: 1em;
+                  font-weight: lighter;
+                  color: #999;
+                }
+            }
+
+            input.error {
+                border: 1px solid #ef6461;
+            }
+
+            .a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .orderBtn {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .button {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: #FFB30F;
+                    font-family: 'Fredoka One', cursive;
+                    text-transform: uppercase;
+                    align-items: center;
+                    margin: 10px auto auto auto;
+                    border: none;
+                    border-radius: 500px;
+                    line-height: 40px;
+                    letter-spacing: 1px;
+                    width: 150px;
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .errorMessage {
+            color: #ef6461;
+            font-size: 0.75em;
+            display: relative;            
+        }
+    }
+}

@@ -1,8 +1,7 @@
 import { FETCH_PRODUCTS } from '../constants/index.js';
 
 const initialState = {
-    products: [],
-    productswholesale: []
+    products: []
 };
 
 const productReducer = (state = initialState, action) => {
@@ -10,8 +9,7 @@ const productReducer = (state = initialState, action) => {
         case FETCH_PRODUCTS:
             return {
                 ...state,
-                products: action.products,
-                productswholesale: action.productswholesale
+                products: action.products
             }
         default:
             return state

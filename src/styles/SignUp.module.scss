@@ -1,0 +1,142 @@
+.wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .formwrapper {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 40px;
+        background-color: #F5FBEF;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+        margin: 5% auto;
+
+        .title {
+            width: 100%;
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+            .email, .password {
+                display: flex;
+                flex-direction: column;
+                margin: 15px auto;
+                width: 85%;
+            }
+
+            label {
+                font-size: 1em;
+                margin-bottom: 0.25em;
+            }
+
+            input {
+                padding: 10px 10px;
+                height: 3.5vh;
+                border-radius: 5px;
+                outline: none;
+                border: 1.5px solid #cfcfcf;
+                &::placeholder {
+                  font-size: 1em;
+                  font-weight: lighter;
+                  color: #999;
+                }
+            }
+
+            input.error {
+                border: 1px solid #ef6461;
+            }            
+
+            .signupButton {
+                width: 100%;
+                margin: auto;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+
+                .button {
+                    margin: 10px auto;
+                    font-family: 'Fredoka One', cursive;
+                    text-transform: uppercase;
+                    text-align: center;
+                    height: 40px;
+                    width: 150px;
+                    line-height: 37px;
+                    border: none;
+                    border-radius: 500px;
+                    background-color: #FFB30F;                    
+                }
+            }
+
+            .lines {
+                margin: 25px auto 15px auto;
+                display: flex;
+                align-items: center;
+                width: 80%;
+
+                .line {
+                    background-color: #282828;
+                    height: 1.5px;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                }
+
+                .or {
+                    color: #FFB30F;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    margin: auto 18px;
+                    font-weight: bold;
+                    font-family: 'RocknRoll One', sans-serif;
+                    letter-spacing: 0.5px;
+                }
+            }
+
+            .a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .signinBtn {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .signin {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: #FFB30F;
+                    font-family: 'Fredoka One', cursive;
+                    text-transform: uppercase;
+                    align-items: center;
+                    margin: 10px auto auto auto;
+                    border: none;
+                    border-radius: 500px;
+                    line-height: 40px;
+                    letter-spacing: 1px;
+                    width: 150px;
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .errorMessage {
+            color: #ef6461;
+            font-size: 0.75em;
+            display: relative;            
+        }
+    }
+}

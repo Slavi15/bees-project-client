@@ -1,0 +1,71 @@
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    align-items: center;
+
+    .product {
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        background-color: #F5FBEF;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+        max-width: 350px;
+
+        .title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+
+        .img {
+            max-width: 25%;
+            margin: 15px auto;
+        }
+
+        .desc, .price {
+            font-size: 18px;
+        }
+
+        .button {
+            margin: 10px auto;
+            font-family: 'Fredoka One', cursive;
+            text-transform: uppercase;
+            text-align: center;
+            height: 40px;
+            width: 150px;
+            line-height: 37px;
+            border: none;
+            outline: none;
+            border-radius: 500px;
+            background-color: #FFB30F;
+            cursor: pointer;
+        }
+
+        .a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 90%;
+        align-items: center;
+    }
+}

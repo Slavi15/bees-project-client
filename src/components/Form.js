@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from '../styles/Form.module.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import Navbar from './Navbar.jsx';
+import img from '../images/bee-5069115_1280.png';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
@@ -54,7 +55,6 @@ class Form extends React.Component {
             address: this.state.address,
             phoneNumber: this.state.tel,
             products: this.props.products,
-            productswholesale: this.props.productswholesale,
             total: this.props.total
         };
 
@@ -98,39 +98,22 @@ class Form extends React.Component {
     };
 
     render() {
-        const honey = require('../images/bee-5069115_1280.png');
-
         const addedProducts = this.props.products.map(prod => {
             return (
-                <div className="cart-container" key={prod._id}>
-                    <div className="cartprod-img">
-                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prod.title} />
-                    </div>
-                    <div className="cartprod-details">
-                        <div className="cartprod-title">{prod.title}</div>
-                        <div className="cartprod-desc">{prod.desc}</div>
-                    </div>
-                    <div className="cartprod-price">Price: {`${prod.price.currency} ${prod.price.value}`}</div>
-                    <div className="cartprod-add-remove">
-                        <div className="cartprod-quantity">Quantity: {prod.quantity}</div>
-                    </div>
-                </div>
-            )
-        })
-
-        const addedProductsW = this.props.productswholesale.map(prodw => {
-            return (
-                <div className="cart-container-w" key={prodw._id}>
-                    <div className="cartprod-img">
-                        <img style={{ maxWidth: "40%", margin: "auto" }} src={honey} alt={prodw.title} />
-                    </div>
-                    <div className="cartprod-details">
-                        <div className="cartprod-title">{prodw.title}</div>
-                        <div className="cartprod-desc">{prodw.desc}</div>
-                    </div>
-                    <div className="cartprod-price">Price: {`${prodw.price.currency} ${prodw.price.value}`}</div>
-                    <div className="cartprod-add-remove">
-                        <div className="cartprod-quantity">Quantity: {prodw.quantity}</div>
+                <div>
+                    <div className={styles.cartcontainer} key={prod._id}>
+                        <img className={styles.img} src={img} alt={prod.title} />
+                        <div className={styles.titleDesc}>
+                            <div className={styles.title}>{prod.title}</div>
+                            <div className={styles.desc}>{prod.desc}</div>
+                        </div>
+                        <div className={styles.price}>Price: {`${prod.price.currency} ${prod.price.value}`}</div>
+                        <div className={styles.addRemove}>
+                            <div className={styles.quantity}>Quantity: {prod.quantity}</div>     
+                        </div>
+                    </div>                    
+                    <div className={styles.total}>
+                        <div className={styles.totalamount}>Total: {this.props.total} EUR</div>
                     </div>
                 </div>
             )
@@ -140,23 +123,14 @@ class Form extends React.Component {
 
         return (
             <div>
-                <Navbar />
-                <div className="cart-info-form">
+                <div className={styles.cart}>
                     {addedProducts}
                 </div>
-                <div className="cart-info-form">
-                    {addedProductsW}
-                </div>
-                <div className="line-break" style={{ maxWidth: "80%", height: 6 }}></div>
-                <div className="fortotal-form">
-                    <div className="total-prod">Total: {this.props.total} EUR</div>
-                </div>
-                <div className="line-break-2" style={{ maxWidth: "45%", height: 2.8 }}></div>
-                <div className="wrapper">
-                    <div className="form-wrapper">
-                        <div className="form-title">Create Order</div>
+                <div className={styles.wrapper}>
+                    <div className={styles.formwrapper}>
+                        <div className={styles.title}>Create Order</div>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="firstName">
+                            <div className={styles.firstName}>
                                 <label htmlFor="firstName">First Name</label>
                                 <input
                                     className={formErrors.firstName.length > 0 ? "error" : null}
@@ -169,10 +143,10 @@ class Form extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.firstName.length > 0 && (
-                                    <span className="errorMessage">{formErrors.firstName}</span>
+                                    <span className={styles.errorMessage}>{formErrors.firstName}</span>
                                 )}
                             </div>
-                            <div className="lastName">
+                            <div className={styles.lastName}>
                                 <label htmlFor="lastName">Last Name</label>
                                 <input
                                     className={formErrors.lastName.length > 0 ? "error" : null}
@@ -185,10 +159,10 @@ class Form extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.lastName.length > 0 && (
-                                    <span className="errorMessage">{formErrors.lastName}</span>
+                                    <span className={styles.errorMessage}>{formErrors.lastName}</span>
                                 )}
                             </div>
-                            <div className="email">
+                            <div className={styles.email}>
                                 <label htmlFor="email">Email</label>
                                 <input
                                     className={formErrors.email.length > 0 ? "error" : null}
@@ -200,10 +174,10 @@ class Form extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.email.length > 0 && (
-                                    <span className="errorMessage">{formErrors.email}</span>
+                                    <span className={styles.errorMessage}>{formErrors.email}</span>
                                 )}
                             </div>
-                            <div className="address">
+                        <div className={styles.address}>
                                 <label htmlFor="address">Address</label>
                                 <input
                                     className={formErrors.address.length > 0 ? "error" : null}
@@ -216,10 +190,10 @@ class Form extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.address.length > 0 && (
-                                    <span className="errorMessage">{formErrors.address}</span>
+                                    <span className={styles.errorMessage}>{formErrors.address}</span>
                                 )}
                             </div>
-                            <div className="tel">
+                            <div className={styles.tel}>
                                 <label htmlFor="tel">Phone Number</label>
                                 <input
                                     className={formErrors.tel.length > 0 ? "error" : null}
@@ -233,29 +207,26 @@ class Form extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.tel.length > 0 && (
-                                    <span className="errorMessage">{formErrors.tel}</span>
+                                    <span className={styles.errorMessage}>{formErrors.tel}</span>
                                 )}
                             </div>
-                            <div className="createOrder">
-                                <button type="submit" className="button">Create Order</button>
+                            <div className={styles.orderBtn}>
+                                <button type="submit" className={styles.button}>Create Order</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div className="line-break-3" style={{ maxWidth: "45%", height: 3 }}></div>
             </div>
         )
     }
 }
 
 Form.propTypes = {
-    products: PropTypes.array.isRequired,
-    productswholesale: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => ({
     products: state.cartReducer.addedProducts,
-    productswholesale: state.cartReducer.addedProductsW,
     total: state.cartReducer.total
 });
 

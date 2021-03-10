@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './Navbar.jsx';
 import axios from 'axios';
+import styles from '../styles/SignIn.module.scss';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -56,12 +56,11 @@ class SignIn extends React.Component {
         const { email, password } = this.state;
         return (
             <div>
-                <Navbar />
-                <div className="wrapper-signin">
-                    <div className="form-wrapper">
-                        <div className="signin-title">Sign In</div>
+                <div className={styles.wrapper}>
+                    <div className={styles.formwrapper}>
+                        <div className={styles.title}>Sign In</div>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="email">
+                            <div className={styles.email}>
                                 <label htmlFor="email">Email</label>
                                 <input
                                     type="email"
@@ -73,7 +72,7 @@ class SignIn extends React.Component {
                                 </input>
                                 <div id="email-error"></div>
                             </div>
-                            <div className="password">
+                            <div className={styles.password}>
                                 <label htmlFor="password">Password</label>
                                 <input
                                     type="password"
@@ -86,8 +85,8 @@ class SignIn extends React.Component {
                                 </input>
                                 <div id="password-error"></div>
                             </div>
-                            <div className="create-account">
-                                <button type="submit" className="button">Sign In</button>
+                            <div className={styles.signinButton}>
+                                <button type="submit" className={styles.button}>Sign In</button>
                             </div>
                         </form>
                     </div>

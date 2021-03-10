@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from './Navbar.jsx';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import styles from '../styles/SignUp.module.scss';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
@@ -59,12 +60,11 @@ class SignUp extends React.Component {
         const { email, password, formErrors } = this.state;
         return (
             <div>
-                <Navbar />
-                <div className="wrapper-signup">
-                    <div className="form-wrapper">
-                        <div className="signup-title">Sign Up</div>
+                <div className={styles.wrapper}>
+                    <div className={styles.formwrapper}>
+                        <div className={styles.title}>Sign Up</div>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="email">
+                            <div className={styles.email}>
                                 <label htmlFor="email">Email</label>
                                 <input
                                     className={formErrors.email.length > 0 ? "error" : null}
@@ -76,10 +76,10 @@ class SignUp extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.email.length > 0 && (
-                                    <span className="errorMessage">{formErrors.email}</span>
+                                    <span className={styles.errorMessage}>{formErrors.email}</span>
                                 )}
                             </div>
-                            <div className="password">
+                            <div className={styles.password}>
                                 <label htmlFor="password">Password</label>
                                 <input
                                     className={formErrors.password.length > 0 ? "error" : null}
@@ -92,11 +92,19 @@ class SignUp extends React.Component {
                                     required >
                                 </input>
                                 {formErrors.password.length > 0 && (
-                                    <span className="errorMessage">{formErrors.password}</span>
+                                    <span className={styles.errorMessage}>{formErrors.password}</span>
                                 )}
                             </div>
-                            <div className="create-account">
-                                <button type="submit" className="button">Sign Up</button>
+                            <div className={styles.signupButton}>
+                                <button type="submit" className={styles.button}>Sign Up</button>
+                            </div>
+                            <div className={styles.lines}>
+                              <div className={styles.line}></div>
+                              <div className={styles.or}>or</div>
+                              <div className={styles.line}></div>
+                            </div>
+                            <div className={styles.signinBtn}>
+                                <Link to="/signin" className={styles.a}><button className={styles.signin}>Sign In</button></Link>
                             </div>
                         </form>
                     </div>

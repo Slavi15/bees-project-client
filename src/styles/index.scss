@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+$orange-color: #FFB30F;
+$green-color: #EEE82C;
+$black-color: #343434;
+$white-color: #F0F4EF;
+$red-color: #ef6461;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #F0F4EF;
+  color: #343434;
+  font-family: 'Poppins', sans-serif;
+}
+
+.pagenotfound {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 15px;
+}

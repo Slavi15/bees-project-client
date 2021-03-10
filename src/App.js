@@ -1,21 +1,23 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import MainPage from './components/MainPage.jsx';
-import Store from './components/Store.jsx';
-import Cart from './components/Cart.jsx';
-import Form from './components/Form.jsx';
-import SignIn from './components/SignIn.jsx';
-import SignUp from './components/SignUp.jsx';
-import PageNotFound from './components/PageNotFound.jsx';
+import Navbar from './components/Navbar.js';
+import MainPage from './components/MainPage.js';
+import Products from './components/Products.js';
+import Cart from './components/Cart.js';
+import Form from './components/Form.js';
+import SignIn from './components/SignIn.js';
+import SignUp from './components/SignUp.js';
+import PageNotFound from './components/PageNotFound.js';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <BrowserRouter>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={MainPage}></Route>
-            <Route exact path="/store" component={Store}></Route>
+            <Route exact path="/store" component={Products}></Route>
             <Route exact path="/cart" component={Cart}></Route>
             <Route exact path="/form" component={Form}></Route>
             <Route exact path="/signin" component={SignIn}></Route>
