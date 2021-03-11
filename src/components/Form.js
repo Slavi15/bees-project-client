@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import img from '../images/bee-5069115_1280.png';
+const Cookies = require('js-cookie');
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
@@ -58,16 +59,24 @@ class Form extends React.Component {
             total: this.props.total
         };
 
-        await axios.post('http://localhost:8000/api/bees-orders', data, { headers: { 'Content-Type': 'application/json' }})
-            .then(res => {
-                console.log(res.data);
-                if(res.data.order) {
-                    window.location.assign('/');
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        await axios.request({
+            method: 'POST',
+            url: 'http://localhost:8000/api/orders',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${Cookies.get('jwt')}`
+            },
+            data: data
+        })
+        .then(res => {
+            console.log(res.data);
+            if(res.data.order) {
+                window.location.assign('/');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
     };
 
     handleChange = (e) => {
@@ -100,8 +109,8 @@ class Form extends React.Component {
     render() {
         const addedProducts = this.props.products.map(prod => {
             return (
-                <div>
-                    <div className={styles.cartcontainer} key={prod._id}>
+                <div key={prod._id}>
+                    <div className={styles.cartcontainer}>
                         <img className={styles.img} src={img} alt={prod.title} />
                         <div className={styles.titleDesc}>
                             <div className={styles.title}>{prod.title}</div>

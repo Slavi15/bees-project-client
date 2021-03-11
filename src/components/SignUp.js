@@ -26,16 +26,24 @@ class SignUp extends React.Component {
             password: this.state.password
         };
 
-        await axios.post('http://localhost:8000/api/signup', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
-            .then(res => {
-                console.log(res.data);
-                if(res.data.user) {
-                    window.location.assign('/');
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        await axios.request({
+            method: 'POST',
+            url: 'http://localhost:8000/api/signup',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: data,
+            withCredentials: true
+        })
+        .then(res => {
+            console.log(res.data);
+            if(res.data.user) {
+                window.location.assign('/');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
     }
 
     handleChange = (e) => {

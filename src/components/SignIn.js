@@ -29,20 +29,28 @@ class SignIn extends React.Component {
             password: this.state.password
         };
 
-        await axios.post('http://localhost:8000/api/signin', data, { headers: { 'Content-Type': 'application/json' }, withCredentials: true })
-            .then(res => {
-                console.log(res.data);
-                if(res.data.user) {
-                    window.location.assign('/');
-                }
-            })
-            .catch(err => {
-                if(err.response.data.errors) {
-                    emailError.textContent = err.response.data.errors.email;
-                    passwordError.textContent = err.response.data.errors.password;
-                }
-                console.log(err);
-            });
+        await axios.request({
+            method: 'POST',
+            url: 'http://localhost:8000/api/signin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: data,
+            withCredentials: true
+        })
+        .then(res => {
+            console.log(res.data);
+            if(res.data) {
+                window.location.assign('/');
+            }
+        })
+        .catch(err => {
+            if(err.response.data.errors) {
+                emailError.textContent = err.response.data.errors.email;
+                passwordError.textContent = err.response.data.errors.password;
+            }
+            console.log(err);
+        });
     }
 
     handleChange = (e) => {
