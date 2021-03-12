@@ -34,7 +34,7 @@ class Footer extends React.Component {
                             <FontAwesomeIcon className={styles.icon} icon={['fab', 'twitter']} />
                         </div>
                         <div>test</div>
-                        <small>© 2020 - Honey Rezashki - All Rights Reserved.</small>
+                        <div>test</div>
                     </div>
                 </div>
             </div>

@@ -3,23 +3,23 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from '../styles/SignUp.module.scss';
 
-const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: '',
-            formErrors: {
-                email: '',
-                password: ''
-            }
+            password: ''
         }
     }
 
     handleSubmit = async(e) => {
         e.preventDefault();
+
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+
+        emailError.textContent = '';
+        passwordError.textContent = '';
 
         const data = {
             email: this.state.email,
@@ -42,6 +42,10 @@ class SignUp extends React.Component {
             }
         })
         .catch(err => {
+            if(err.response.data.errors) {
+                emailError.textContent = err.response.data.errors.email;
+                passwordError.textContent = err.response.data.errors.password;
+            }
             console.log(err);
         });
     }
@@ -49,23 +53,12 @@ class SignUp extends React.Component {
     handleChange = (e) => {
         e.preventDefault();
         const { name, value } = e.target;
-        const formErrors = { ...this.state.formErrors };
-
-        switch (name) {
-            case "email":
-                formErrors.email = emailRegex.test(value) ? "" : "invalid email address";
-                break;
-            case "password":
-                formErrors.password = value.length < 6 ? "minimum 6 characaters required" : "";
-                break;
-            default:
-                break;
-        }
-        this.setState({ formErrors, [name]: value });
+        
+        this.setState({ [name]: value });
     }
 
     render() {
-        const { email, password, formErrors } = this.state;
+        const { email, password } = this.state;
         return (
             <div>
                 <div className={styles.wrapper}>
@@ -75,7 +68,6 @@ class SignUp extends React.Component {
                             <div className={styles.email}>
                                 <label htmlFor="email">Email</label>
                                 <input
-                                    className={formErrors.email.length > 0 ? "error" : null}
                                     type="email"
                                     placeholder="Email"
                                     name="email"
@@ -83,25 +75,19 @@ class SignUp extends React.Component {
                                     onChange={this.handleChange}
                                     required >
                                 </input>
-                                {formErrors.email.length > 0 && (
-                                    <span className={styles.errorMessage}>{formErrors.email}</span>
-                                )}
+                                <div id="email-error" className={styles.error}></div>
                             </div>
                             <div className={styles.password}>
                                 <label htmlFor="password">Password</label>
                                 <input
-                                    className={formErrors.password.length > 0 ? "error" : null}
                                     type="password"
                                     placeholder="Password"
                                     name="password"
                                     value={password}
                                     onChange={this.handleChange}
-                                    minLength="6"
                                     required >
                                 </input>
-                                {formErrors.password.length > 0 && (
-                                    <span className={styles.errorMessage}>{formErrors.password}</span>
-                                )}
+                                <div id="password-error" className={styles.error}></div>
                             </div>
                             <div className={styles.signupButton}>
                                 <button type="submit" className={styles.button}>Sign Up</button>

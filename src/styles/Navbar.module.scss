@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 9vh;
+    height: 10vh;
     background-color: #F0F4EF;
-    line-height: 9vh;
+    line-height: 10vh;
 
     .a {
         text-decoration: none;
@@ -61,7 +61,7 @@
             margin: auto 20px;            
         }
 
-        .icon {
+        .shopicon {
             font-size: 22px;
             margin: auto 30px;
         }
@@ -79,13 +79,14 @@
         }
     }
 
-    .burger {
-        margin: auto 30px auto 10px;
-        display: none;
-        cursor: pointer;
+    .righticons {
+        display: flex;
+        align-items: center;
 
         .icon {
             font-size: 25px;
+            display: none;
+            cursor: pointer;
         }
     }
 }
@@ -105,7 +106,7 @@
         .links {
             z-index: 100;
             position: absolute;
-            min-height: 90vh;
+            min-height: 92vh;
             right: 0px;
             top: 9vh;
             background-color: #F0F4EF;
@@ -131,7 +132,7 @@
             margin: auto;
         }
     
-        .burger {
+        .icon {
             opacity: 1;
             display: block !important;
             margin: auto 20px auto 5px;

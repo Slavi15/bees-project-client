@@ -7,11 +7,7 @@ class SignIn extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: '',
-            formErrors: {
-                email: '',
-                password: ''
-            }
+            password: ''
         }
     }
 
@@ -78,7 +74,7 @@ class SignIn extends React.Component {
                                     onChange={this.handleChange}
                                     required >
                                 </input>
-                                <div id="email-error"></div>
+                                <div id="email-error" className={styles.error}></div>
                             </div>
                             <div className={styles.password}>
                                 <label htmlFor="password">Password</label>
@@ -88,10 +84,9 @@ class SignIn extends React.Component {
                                     name="password"
                                     value={password}
                                     onChange={this.handleChange}
-                                    minLength="6"
                                     required >
                                 </input>
-                                <div id="password-error"></div>
+                                <div id="password-error" className={styles.error}></div>
                             </div>
                             <div className={styles.signinButton}>
                                 <button type="submit" className={styles.button}>Sign In</button>

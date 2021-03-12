@@ -16,21 +16,21 @@ class Navbar extends React.Component {
 
         const renderButtons = () => {
             if(Cookies.get('jwt')) {
-              return (
-                <div className={styles.innercontainer}>
-                    <a className={styles.a} href="http://localhost:8000/api/logout"><div className={styles.logout}>Log Out</div></a>
-                    <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.icon} icon="shopping-cart" /></Link>
-                </div>
-              )
+                return (
+                    <div className={styles.innercontainer}>
+                        <a className={styles.a} href="http://localhost:8000/api/logout"><div className={styles.logout}>Log Out</div></a>
+                        <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.shopicon} icon="shopping-cart" /></Link>
+                    </div>
+                )
             } else {
-              return (
-                <div className={styles.innercontainer}>
-                    <Link className={styles.a} to="/signin"><div className={styles.signin}>Sign In</div></Link>
-                    <Link className={styles.a} to="/signup"><div className={styles.signup}>Sign Up</div></Link>
-                </div>
-              )
+                return (
+                    <div className={styles.innercontainer}>
+                        <Link className={styles.a} to="/signin"><div className={styles.signin}>Sign In</div></Link>
+                        <Link className={styles.a} to="/signup"><div className={styles.signup}>Sign Up</div></Link>
+                    </div>
+                )
             }
-          }
+        }
 
         return (
             <div>
@@ -42,9 +42,9 @@ class Navbar extends React.Component {
                         <Link className={styles.a} to="/about"><div className={styles.link}>About us</div></Link>
                         <Link className={styles.a} to="/store"><div className={styles.link}>Store</div></Link>
                     </div>
-                    <div>{renderButtons()}</div>
-                    <div className={styles.burger} onClick={navSlide}>
-                        <FontAwesomeIcon className={styles.icon} icon="bars" />
+                    <div className={styles.righticons}>
+                        {renderButtons()}
+                        <FontAwesomeIcon onClick={navSlide} className={styles.icon} icon="bars" />
                     </div>
                 </div>
             </div>

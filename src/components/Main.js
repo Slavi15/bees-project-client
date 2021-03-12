@@ -10,13 +10,6 @@ class Main extends React.Component {
         return (
             <div>
                 <img className={styles.mainimg} id="image" src={img} alt="main" />
-                <div className={styles.curvedDiv}>
-                    <div className={styles.options}>
-                        <div>The best honey</div>
-                        <div>The best honey</div>
-                        <div>The best honey</div>
-                    </div>
-                </div>
                 <div className={styles.uppertext}>
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />
