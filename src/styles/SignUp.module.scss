@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 5% auto;
 
     .formwrapper {
         width: 400px;
@@ -12,7 +13,6 @@
         padding: 20px 40px;
         background-color: #F5FBEF;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
-        margin: 5% auto;
 
         .title {
             width: 100%;
@@ -57,11 +57,7 @@
                   font-weight: lighter;
                   color: #999;
                 }
-            }
-
-            input.error {
-                border: 1px solid #ef6461;
-            }            
+            }          
 
             .signupButton {
                 width: 100%;
@@ -129,6 +125,7 @@
                     align-items: center;
                     margin: 10px auto auto auto;
                     border: none;
+                    outline: none;
                     border-radius: 500px;
                     line-height: 40px;
                     letter-spacing: 1px;
@@ -138,11 +135,18 @@
                 }
             }
         }
+    }
+}
 
-        .errorMessage {
-            color: #ef6461;
-            font-size: 0.75em;
-            display: relative;            
+@media screen and (max-width: 800px) {
+    .formwrapper {
+        width: 275px !important;
+        margin: 10% auto;
+
+        form {
+            .email, .password {
+                width: 95% !important;
+            }
         }
     }
 }

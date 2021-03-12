@@ -5,20 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Cookies = require('js-cookie');
 
 class Navbar extends React.Component {
+    navSlide = () => {
+        const nav = document.querySelector('#links');
+        nav.classList.toggle('navActive');
+    }
+    
     render() {
-        const navSlide = () => {
-            const nav = document.querySelector('#links');
-            nav.classList.toggle('nav-active');
-            //console.log(nav);
-        }
-
         //console.log(Cookies.get('jwt'));
 
         const renderButtons = () => {
             if(Cookies.get('jwt')) {
                 return (
                     <div className={styles.innercontainer}>
-                        <a className={styles.a} href="http://localhost:8000/api/logout"><div className={styles.logout}>Log Out</div></a>
+                        <a className={styles.a} href="http://localhost:8000/api/auth/logout"><div className={styles.logout}>Log Out</div></a>
                         <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.shopicon} icon="shopping-cart" /></Link>
                     </div>
                 )
@@ -44,7 +43,7 @@ class Navbar extends React.Component {
                     </div>
                     <div className={styles.righticons}>
                         {renderButtons()}
-                        <FontAwesomeIcon onClick={navSlide} className={styles.icon} icon="bars" />
+                        <FontAwesomeIcon onClick={this.navSlide} className={styles.icon} icon="bars" />
                     </div>
                 </div>
             </div>

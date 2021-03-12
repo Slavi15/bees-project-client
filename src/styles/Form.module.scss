@@ -99,7 +99,7 @@
             display: flex;
             flex-wrap: wrap;
 
-            .firstName, .lastName, .email, .address, .tel {
+            .firstName, .lastName, .email, .address, .tel, .buyerror {
                 display: flex;
                 flex-direction: column;
                 margin: 15px auto;
@@ -127,6 +127,13 @@
                 width: 100%;
             }
 
+            .buyerror {
+                text-align: center;
+                font-size: 15px;
+                font-family: 'Roboto', sans-serif;
+                color: #ef6461;
+            }
+
             label {
                 font-size: 1em;
                 margin-bottom: 0.25em;
@@ -143,10 +150,9 @@
                   font-weight: lighter;
                   color: #999;
                 }
-            }
-
-            input.error {
-                border: 1px solid #ef6461;
+                &:focus {
+                    font-size: 1em;
+                }
             }
 
             .a {
@@ -170,6 +176,7 @@
                     align-items: center;
                     margin: 10px auto auto auto;
                     border: none;
+                    outline: none;
                     border-radius: 500px;
                     line-height: 40px;
                     letter-spacing: 1px;
@@ -179,11 +186,40 @@
                 }
             }
         }
+    }
+}
 
-        .errorMessage {
-            color: #ef6461;
-            font-size: 0.75em;
-            display: relative;            
+@media screen and (max-width: 800px) {
+    .formwrapper {
+        width: 275px !important;
+        margin: 10% auto;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .cartcontainer {
+        max-width: 75%;
+        height: 44vh;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly !important;
+        align-items: center;
+    }
+
+    .img {
+        max-width: 27.5% !important;
+    }
+
+    .titleDesc {
+        .title {
+            text-align: center;
         }
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1150px) {
+    .cartcontainer {
+        height: 14vh;
     }
 }

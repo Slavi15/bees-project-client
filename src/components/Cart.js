@@ -22,33 +22,37 @@ class Cart extends React.Component {
     }
 
     render() {
-        let addedProducts = this.props.products.map(prod => {
-            return (
-                <div className={styles.cartcontainer} key={prod._id}>
-                    <img className={styles.img} src={img} alt={prod.title} />
-                    <div className={styles.titleDesc}>
-                        <div className={styles.title}>{prod.title}</div>
-                        <div className={styles.desc}>{prod.desc}</div>
+        let addedProducts = this.props.products.length ? (
+            this.props.products.map(prod => {
+                return (
+                    <div key={prod._id}>
+                        <div className={styles.cartcontainer}>
+                            <img className={styles.img} src={img} alt={prod.title} />
+                            <div className={styles.titleDesc}>
+                                <div className={styles.title}>{prod.title}</div>
+                                <div className={styles.desc}>{prod.desc}</div>
+                            </div>
+                            <div className={styles.price}>Price: {`${prod.price.currency} ${prod.price.value}`}</div>
+                            <div className={styles.addRemove}>
+                                <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.icon} onClick={() => { this.handleAddQuantity(prod._id) }} icon="chevron-up" /></Link>
+                                <div className={styles.quantity}>Quantity: {prod.quantity}</div>
+                                <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.icon} onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
+                            </div>
+                            <Link className={styles.a} to='/store'><button className={styles.button} onClick={() => { this.handleRemove(prod._id) }}>Remove</button></Link>
+                        </div>
+                        <div className={styles.total}>
+                            <div className={styles.totalamount}>Total: {this.props.total} EUR</div>
+                            <Link className={styles.a} to="/form"><button className={styles.button}>BUY</button></Link>
+                        </div>
                     </div>
-                    <div className={styles.price}>Price: {`${prod.price.currency} ${prod.price.value}`}</div>
-                    <div className={styles.addRemove}>
-                        <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.icon} onClick={() => { this.handleAddQuantity(prod._id) }} icon="chevron-up" /></Link>
-                        <div className={styles.quantity}>Quantity: {prod.quantity}</div>
-                        <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.icon} onClick={() => { this.handleSubQuantity(prod._id) }} icon="chevron-down" /></Link>
-                    </div>
-                    <Link className={styles.a} to='/store'><button className={styles.button} onClick={() => { this.handleRemove(prod._id) }}>Remove</button></Link>
-                </div>
-            )
-        });
+                )
+            })
+        ) : (<div className={styles.proderror}>No products selected!</div>);
 
         return (
             <div>
                 <div className={styles.cart}>
                     {addedProducts}
-                </div>
-                <div className={styles.total}>
-                    <div className={styles.totalamount}>Total: {this.props.total} EUR</div>
-                    <Link className={styles.a} to="/form"><button className={styles.button}>BUY</button></Link>
                 </div>
             </div>
         )

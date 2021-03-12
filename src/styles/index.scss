@@ -10,10 +10,12 @@ $red-color: #ef6461;
 
 html,
 body {
+  width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   background-color: #F0F4EF;
   color: #343434;
   font-family: 'Poppins', sans-serif;

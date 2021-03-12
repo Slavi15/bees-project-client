@@ -37,6 +37,10 @@
             text-decoration: none;
             color: inherit;
         }
+
+        .icon {
+            display: none;
+        }
     }
 
     .innercontainer {
@@ -103,6 +107,10 @@
             font-size: 20px;
         }
 
+        .navActive {
+            transform: translateX(0%);
+        }
+
         .links {
             z-index: 100;
             position: absolute;
@@ -138,10 +146,6 @@
             margin: auto 20px auto 5px;
         }
     }
-}
-
-.nav-active {
-    transform: translateX(0%);
 }
 
 @media screen and (max-width: 400px) {

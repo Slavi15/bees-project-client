@@ -15,7 +15,7 @@ class Main extends React.Component {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />
                     Obcaecati a libero nesciunt deleniti unde asperiores sed facilis saepe nulla eos cumque quaerat <br /> 
                     maxime accusantium repellendus eius repellat voluptas veniam, <br />
-                    explicabo repudiandae ullam iure amet! Error harum fugiat commodi temporibus sequi.
+                    explicabo repudiandae ullam iure amet! Error harum fugiat commodi temporibus.
                     </p>
                     <img src={img2} alt="test" />
                 </div>
@@ -25,7 +25,7 @@ class Main extends React.Component {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />
                     Obcaecati a libero nesciunt deleniti unde asperiores sed facilis saepe nulla eos cumque quaerat <br /> 
                     maxime accusantium repellendus eius repellat voluptas veniam, <br />
-                    explicabo repudiandae ullam iure amet! Error harum fugiat commodi temporibus sequi.
+                    explicabo repudiandae ullam iure amet! Error harum fugiat commodi temporibus.
                     </p>
                 </div>
                 <Footer />

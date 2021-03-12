@@ -21,6 +21,10 @@ class Form extends React.Component {
     handleSubmit = async(e) => {
         e.preventDefault();
 
+        if(!Cookies.get('jwt')) {
+            document.getElementById('buy-error').textContent = 'You need to be logged in!';
+        }
+
         const emailError = document.getElementById('email-error');
         const firstNameError = document.getElementById('first-error');
         const lastNameError = document.getElementById('last-error');
@@ -146,7 +150,7 @@ class Form extends React.Component {
                                 </input>
                                 <div id="email-error" className={styles.error}></div>
                             </div>
-                        <div className={styles.address}>
+                            <div className={styles.address}>
                                 <label htmlFor="address">Address</label>
                                 <input
                                     placeholder="Address"
@@ -170,6 +174,7 @@ class Form extends React.Component {
                                 </input>
                                 <div id="tel-error" className={styles.error}></div>
                             </div>
+                            <div id="buy-error" className={styles.buyerror}></div>
                             <div className={styles.orderBtn}>
                                 <button type="submit" className={styles.button}>Create Order</button>
                             </div>
