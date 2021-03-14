@@ -28,7 +28,7 @@ class SignUp extends React.Component {
 
         await axios.request({
             method: 'POST',
-            url: 'http://localhost:8000/api/auth/signup',
+            url: 'https://beesproject-api.herokuapp.com/api/auth/signin',
             headers: {
                 'Content-Type': 'application/json'
             },

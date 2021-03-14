@@ -49,7 +49,7 @@ class Form extends React.Component {
 
         await axios.request({
             method: 'POST',
-            url: 'http://localhost:8000/api/orders',
+            url: 'https://beesproject-api.herokuapp.com/api/orders',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${Cookies.get('jwt')}`
