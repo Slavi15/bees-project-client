@@ -17,7 +17,7 @@ class Navbar extends React.Component {
             if(Cookies.get('jwt')) {
                 return (
                     <div className={styles.innercontainer}>
-                        <a className={styles.a} href="http://localhost:8000/api/auth/logout"><div className={styles.logout}>Log Out</div></a>
+                        <a className={styles.a} href="https://beesproject-api.herokuapp.com/api/auth/logout"><div className={styles.logout}>Log Out</div></a>
                         <Link className={styles.a} to="/cart"><FontAwesomeIcon className={styles.shopicon} icon="shopping-cart" /></Link>
                     </div>
                 )
